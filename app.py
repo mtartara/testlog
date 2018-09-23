@@ -33,4 +33,4 @@ def LogString():
     return "<span>Loggged! Rows id: %s</span>" % id_session
 
 if __name__ == "__main__":
-    app.run(port=5002)
+    app.run(port=8080)
