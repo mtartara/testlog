@@ -40,4 +40,4 @@ def LogString():
     return "<span>Loggged! Rows id: %s</span>" % id_session
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=5002)
+    app.run(host='0.0.0.0',port=8080)
