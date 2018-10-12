@@ -3,7 +3,7 @@ import random
 import string
 import json
 import datetime
-import  time
+#import  time
 
 app = Flask(__name__)
 
@@ -16,6 +16,7 @@ def main():
 def LogString():
     nrow = int(request.form['nrow'])
     dest = request.form['dest']
+    format_row = request.form['format']
     id_session = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
     for i in range(nrow):
         data = {}
@@ -27,10 +28,16 @@ def LogString():
         data['Tipo_Evento'] = None
         data['Profilo_Utenza'] = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
         data['OCPLOGDEST'] = dest
-        print json.dumps(data)
-
+        if format_row == "JSON":
+            print json.dumps(data)
+        else:
+            row = "<OCPLOGDEST=\"%s\">" % data['OCPLOGDEST']
+            for d in data:
+                if d != "OCPLOGDEST":
+                    row+=("[%s]" % data[d])
+            print row
 
     return "<span>Loggged! Rows id: %s</span>" % id_session
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=8080)
+    app.run(host='0.0.0.0',port=5002)
