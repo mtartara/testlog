@@ -31,7 +31,7 @@ def LogString():
         if format_row == "JSON":
             print json.dumps(data)
         else:
-            row = "<OCPLOGDEST=\"%s\">" % data['OCPLOGDEST']
+            row = "<OCPLOGDEST1=\"%s\"; OCPLOGDEST=\"LOGGA\">" % data['OCPLOGDEST']
             for d in data:
                 if d != "OCPLOGDEST":
                     row+=("[%s]" % data[d])
