@@ -29,13 +29,13 @@ def LogString():
         data['Profilo_Utenza'] = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
         data['OCPLOGDEST'] = dest
         if format_row == "JSON":
-            print json.dumps(data)
+            print(json.dumps(data))
         else:
             row = "<OCPLOGDEST1=\"%s\"; OCPLOGDEST=\"LOGGA\">" % data['OCPLOGDEST']
             for d in data:
                 if d != "OCPLOGDEST":
                     row+=("[%s]" % data[d])
-            print row
+            print(row)
 
     return "<span>Loggged! Rows id: %s</span>" % id_session
 
