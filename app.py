@@ -24,6 +24,7 @@ def LogString():
     )
     for i in range(nrow):
         data = {}
+        data["unique_id"] = "testlog-custom"
         data["ID_Sessione"] = id_session
         data["Timestamp"] = str(datetime.datetime.now())
         data["Username"] = (
